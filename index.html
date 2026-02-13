@@ -159,17 +159,19 @@ Att: Lio :v
 
   let noBtnMovible = true;
 
-  noBtn.addEventListener('mouseover', () => {
+  function moverNoBtn() {
     if(noBtnMovible) {
       const x = (Math.random() - 0.5) * 200; // mueve +/- 100px
       const y = (Math.random() - 0.5) * 200;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
-  });
+  }
 
-  noBtn.addEventListener('click', () => {
-    noBtn.disabled = true;
-  });
+  // PC: mover al pasar el mouse
+  noBtn.addEventListener('mouseover', moverNoBtn);
+
+  // Móviles y PC: mover cada vez que se toque o haga click
+  noBtn.addEventListener('click', moverNoBtn);
 
   siBtn.addEventListener('click', () => {
     document.body.style.backgroundColor = '#ffc0cb';
