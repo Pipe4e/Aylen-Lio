@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta Especial</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  #buttons {
+    display: flex;
+    gap: 40px;
+    position: relative;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #000;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  #noBtn {
+    background-color: #fff;
+  }
+
+  #siBtn {
+    background-color: #ffb6c1;
+  }
+
+  #carta {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 800px;
+    height: 90%;
+    overflow-y: auto;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fce4ec;
+    border: 5px solid #e91e63;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    color: #000;
+    line-height: 1.5;
+    animation: entrar 0.5s forwards;
+  }
+
+  @keyframes entrar {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.7);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  #carta h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  #carta p {
+    white-space: pre-line;
+  }
+
+  #dePara {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+  <div id="dePara">De: Lio, Para: Aylen</div>
+  <h1>¿¿Volverías a pasar el 14 con yo??</h1>
+  
+  <div id="buttons">
+    <button id="noBtn">No</button>
+    <button id="siBtn">Sí</button>
+  </div>
+
+  <div id="carta">
+    <h2>Mi Aylencita Hermosa</h2>
+    <p>
+Mi niña hermosa, no tengo por donde empezar,
+a veces las cosas se complican entre nosotros por un simple malentendido,
+quizás hayan días en los que ambos no estemos del mejor humor,
+o quizás solamente sin ánimos,
+pero a pesar de todo, estar a tu lado se volvió cotidiano.
+
+Cada día despierto pensándote,
+cada mañana mi primer pensamiento sos vos
+y quería agradecerte por darme las fuerzas de poder seguir adelante,
+las fuerzas de seguir mis sueños y esforzarme para cada día darte lo mejor,
+darme las fuerzas para seguir estudiando y preparándome para en algún futuro
+ser merecedor de tu hermosa compañía,
+de poder despertar a tu lado y poder llenarte la hermosa carita que tenés, de besitos.
+
+Cada salida contigo no es solamente un recuerdo,
+es un motivo para sonreír y ponerme de buen humor,
+cada chiste, cada conversación contigo,
+cada día con tu presencia me hace tener la fe de que algún día podré tener esa vida feliz que tanto anhelo:
+una niña tan hermosa, graciosa y entretenida como lo sos vos.
+
+Nuevamente, como todos los días de mi vida, agradezco haber conocido a una persona tan, tan linda como lo sos.
+La mayoría del tiempo me quedo buscando una palabra perfecta para describirte,
+pero no existen palabras que se acerquen a describir lo perfecta que sos para mí.
+
+Gracias por ser mi 14 de febrero,
+espero y sea el inicio de una serie de años juntos,
+aunque quizás por un tiempo no como novios.
+Siempre voy a estar para vos:
+cada que me necesites para hablar,
+para resolver un problema,
+para criticar a alguien,
+para quejarte de Allan,
+voy a estar contigo siempre que lo necesites.
+
+Te amo con todo mi corazón,
+mi niña hermosa,
+mi princesita linda,
+mi Aylencita hermosa.
+
+Att: Lio :v
+    </p>
+  </div>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const siBtn = document.getElementById('siBtn');
+  const carta = document.getElementById('carta');
+
+  let noBtnMovible = true;
+
+  noBtn.addEventListener('mouseover', () => {
+    if(noBtnMovible) {
+      const x = (Math.random() - 0.5) * 200; // mueve +/- 100px
+      const y = (Math.random() - 0.5) * 200;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  });
+
+  noBtn.addEventListener('click', () => {
+    noBtn.disabled = true;
+  });
+
+  siBtn.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#ffc0cb';
+    carta.style.display = 'block';
+    noBtn.style.display = 'none';
+    siBtn.style.display = 'none';
+    noBtnMovible = false;
+    carta.style.animation = 'entrar 0.5s forwards';
+  });
+</script>
+</body>
+</html>
